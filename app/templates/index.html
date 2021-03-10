@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block body %}
+<form class="form-inline"  action="create" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" class="form-control" style="width:30%;" required="required"/>
+        <label for="status">Status</label><br>
+        <input type="radio" name="status" value="open" class="form-check-input" required="required"/>
+        <label class="form-check-label" for="open">
+            Open
+        </label>
+        <input type="radio" name="status" value="closed" class="form-check-input" required="required"/>
+        <label class="form-check-label" for="closed">
+            Closed
+        </label><br>
+        <label for="price">Price per hour</label>
+        <input type="number" name="price" class="form-control" style="width:30%;" required="required"/>
+        <label for="nos">Number of courts</label>
+        <input type="number" name="nos" class="form-control" style="width:30%;" required="required"/>
+        <button type="submit" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span> ADD</button>
+    </div>
+</form>
+<br />
+<table class="table table-bordered">
+    <thead class="alert-warning">
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Price per hour</th>
+            <th>Number of courts</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ac in academy %}
+        <tr>
+            <td>{{ ac.name }}</td>
+            <td>{{ ac.status }}</td>
+            <td>{{ ac.price }}</td>
+            <td>{{ ac.nos }}</td>
+            <td><center><a class="btn btn-sm btn-warning" href="edit/{{ member.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a class="btn btn-sm btn-danger" href="delete/{{ member.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></center></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
