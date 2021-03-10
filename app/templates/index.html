@@ -27,7 +27,7 @@
         <tr>
             <th>Name</th>
             <th>Status</th>
-            <th>Price per hour</th>
+            <th>Price per hour (in $)</th>
             <th>Number of courts</th>
         </tr>
     </thead>
@@ -38,7 +38,7 @@
             <td>{{ ac.status }}</td>
             <td>{{ ac.price }}</td>
             <td>{{ ac.nos }}</td>
-            <td><center><a class="btn btn-sm btn-warning" href="edit/{{ member.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a class="btn btn-sm btn-danger" href="delete/{{ member.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></center></td>
+            <td><center><a class="btn btn-sm btn-warning" href="edit/{{ ac.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a class="btn btn-sm btn-danger" href="delete/{{ ac.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></center></td>
         </tr>
         {% endfor %}
     </tbody>

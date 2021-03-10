@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block body %}
+    <form method="POST" action="update/{{ academy.id }}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" value="{{ academy.name }}" class="form-control" style="width:30%;" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="status">Status</label><br>
+            <input type="radio" name="status" value="open" class="form-check-input" required="required"/>
+            <label class="form-check-label" for="open">
+                Open
+            </label>
+            <input type="radio" name="status" value="closed" class="form-check-input" required="required"/>
+            <label class="form-check-label" for="closed">
+                Closed
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="price">Price per hour</label>
+            <input type="number" name="price" value="{{ academy.price }}" class="form-control" style="width:30%;" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="nos">Number of courts</label>
+            <input type="number" name="nos" value="{{ academy.nos }}" class="form-control" style="width:30%;" required="required"/>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit"></span> Update</button>
+        </div>
+    </form>
+{% endblock %}
